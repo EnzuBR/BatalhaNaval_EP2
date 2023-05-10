@@ -182,17 +182,18 @@ while jogando == True:
     if n_afundados == 10:
         print('Parabéns! Você derrubou todos os navios do seu oponente!')
         jogando = False
-    atq_op_valido = False
-    pos_op_atacadas = []
-    while not atq_op_valido:
-        l_op_ataque = random.randint(0,9)
-        c_op_ataque = random.randint(0,9)
-        if [l_op_ataque,c_op_ataque] not in pos_op_atacadas:
-            atq_op_valido = True
-    pos_op_atacadas.append([l_op_ataque,c_op_ataque])
-    print('Seu oponente está atacando na linha {0} e coluna {1}'.format(l_op_ataque,c_op_ataque))
-    tabuleiro_jogador = faz_jogada(tabuleiro_jogador,l_op_ataque,c_op_ataque)
-    n_op_afundados = afundados(frota_jogador,tabuleiro_jogador)
-    if n_op_afundados == 10:
-        print('Xi! O oponente derrubou toda a sua frota =(')
-        jogando = False
+    if jogando:
+        atq_op_valido = False
+        pos_op_atacadas = []
+        while not atq_op_valido:
+            l_op_ataque = random.randint(0,9)
+            c_op_ataque = random.randint(0,9)
+            if [l_op_ataque,c_op_ataque] not in pos_op_atacadas:
+                atq_op_valido = True
+        pos_op_atacadas.append([l_op_ataque,c_op_ataque])
+        print('Seu oponente está atacando na linha {0} e coluna {1}'.format(l_op_ataque,c_op_ataque))
+        tabuleiro_jogador = faz_jogada(tabuleiro_jogador,l_op_ataque,c_op_ataque)
+        n_op_afundados = afundados(frota_jogador,tabuleiro_jogador)
+        if n_op_afundados == 10:
+            print('Xi! O oponente derrubou toda a sua frota =(')
+            jogando = False
