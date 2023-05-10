@@ -105,3 +105,5 @@ for i in range(3):
 
 for i in range(4):
     frotas = posicionando_frota(frotas,1,'submarino')
+
+print(frotas)
